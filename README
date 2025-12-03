@@ -1,2 +1,37 @@
-적용방법 : 플루터에서 new 프로젝트 생성 후 덮어쓰기
+### 적용방법 : 플루터에서 new 프로젝트 생성 후 덮어쓰기
 
+---
+lib/
+├── main.dart                      // [앱의 시작점] 앱 실행, 초기화, 로그인 화면 호출
+│
+├── theme/
+│   └── constants.dart             // [디자인 상수] 앱 공통 색상(LG Red, Blue 등) 정의
+│
+├── models/                        // [데이터 설계도]
+│   ├── device_model.dart          // 기기 객체 (이름, 아이콘, 켜짐/꺼짐 상태)
+│   ├── notification_model.dart    // 알림 객체 (제목, 시간, 아이콘, 읽음 여부)
+│   ├── scenario_models.dart       // 수질 시나리오 구조 (지역, TDS, 탁도, 솔루션)
+│   └── weather_model.dart         // 날씨 데이터 모델 (API JSON → 객체 변환)
+│
+├── data/
+│   └── scenario_data.dart         // [데이터 저장소] 지역별(하노이, 호찌민) 수질 시나리오 원본 데이터
+│
+├── services/                      // [기능 로직]
+│   ├── notification_service.dart  // 로컬 푸시 알림(상단바 알림) 기능 담당
+│   └── weather_service.dart       // 날씨 API 통신 (OpenWeatherMap) 담당
+│
+└── screens/                       // [화면 UI]
+    ├── login_screen.dart          // 로그인 화면
+    ├── signup_screen.dart         // 회원가입 화면
+    ├── main_nav_screen.dart       // [핵심 본부] 하단 탭 관리, 기기/알림 상태 총괄 관리
+    │
+    ├── home_screen.dart           // [탭 1] 홈 화면 (상태 요약, 즐겨찾기 기기)
+    ├── device_screen.dart         // [탭 2] 기기 목록 화면 (전체 가전 제어)
+    ├── water_q_screen.dart        // [탭 3] LG WaterQ 화면 (수질 진단, AI 연동)
+    ├── menu_screen.dart           // [탭 4] 메뉴 화면 (마이페이지, 설정 등 진입)
+    │
+    ├── ai_detail_screen.dart      // AI 스마트 설정 상세 (솔루션 적용 팝업/화면)
+    ├── weather_test_screen.dart   // 날씨 정보 및 수질 분석 솔루션 화면
+    ├── mypage_screen.dart         // 마이페이지 (내 정보, 멤버십)
+    ├── notification_screen.dart   // 알림 센터 (알림 히스토리 목록)
+    └── sub_page_screen.dart       // 공통 서브 페이지 (단순 정보 표시용 템플릿)
